@@ -45,7 +45,7 @@ gitops:
 5. Create the Amazon EKS cluster with `eksctl`:
 
 ```bash
-eksctl create -f eksctl-config.yaml
+eksctl create cluster -f helpers/eksctl-config.yaml
 ```
 
 ## Cleanup
@@ -60,5 +60,6 @@ eksctl delete cluster --name sandbox
 
 ```bash
 git checkout main
-git push --delete origin demo                                                                                                       git branch -D demo
+git push --delete origin demo
+git branch -D demo
 ```
