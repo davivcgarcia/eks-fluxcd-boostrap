@@ -18,4 +18,5 @@ spec:
   values:
     apiService:
       create: true
-  install: {}
+  install:
+    createNamespace: true

@@ -4,3 +4,4 @@ resources:
   - sources
   - kube-addons
   - aws-addons
+  - other-addons
