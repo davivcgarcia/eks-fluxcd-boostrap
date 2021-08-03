@@ -15,8 +15,9 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: projectcalico
-  values:
-    apiService:
-      create: true
   install:
     createNamespace: true
+  values:
+    installation:
+      kubernetesProvider: EKS
+
