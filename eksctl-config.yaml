@@ -1,0 +1,82 @@
+kind: ClusterConfig
+apiVersion: eksctl.io/v1alpha5
+metadata:
+  name: sandbox
+  version: "1.21"
+  region: us-east-1
+availabilityZones:
+  - us-east-1a
+  - us-east-1b
+  - us-east-1c
+vpc:
+  nat:
+    gateway: HighlyAvailable
+  clusterEndpoints:
+    privateAccess: true
+    publicAccess: true
+cloudWatch:
+  clusterLogging:
+    enableTypes:
+      - api
+      - audit
+      - authenticator
+      - controllerManager
+      - scheduler
+iam:
+  withOIDC: true
+  serviceAccounts:
+    - metadata:
+        name: cluster-autoscaler
+        namespace: kube-system
+      wellKnownPolicies:
+        autoScaler: true
+      roleName: sandbox-autoscaler-role
+    - metadata:
+        name: external-dns
+        namespace: kube-system
+      wellKnownPolicies:
+        externalDNS: true
+    - metadata:
+        name: aws-load-balancer-controller
+        namespace: aws-system
+      wellKnownPolicies:
+        awsLoadBalancerController: true
+      roleName: sandbox-lb-controller-role
+    - metadata:
+        name: aws-cloudwatch-agent
+        namespace: aws-system
+      attachPolicyARNs:
+        - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
+      roleName: sandbox-cloudwatch-metrics
+    - metadata:
+        name: aws-fluent-bit
+        namespace: aws-system
+      attachPolicyARNs:
+        - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
+      roleName: sandbox-fluent-bit
+addons:
+  - name: vpc-cni
+    version: latest
+  - name: kube-proxy
+    version: latest
+  - name: coredns
+    version: latest
+gitops:
+  flux:
+    gitProvider: github
+    flags:
+      owner: davivcgarcia
+      repository: eks-fluxcd-boostrap
+      private: "false"
+      branch: demo
+      path: ./clusters/sandbox/
+      namespace: flux-system
+managedNodeGroups:
+  - name: sandbox-amd64-workers
+    instanceType: m5.large
+    desiredCapacity: 3
+    minSize: 2
+    maxSize: 5
+    privateNetworking: true
+    ssh:
+      enableSsm: true
