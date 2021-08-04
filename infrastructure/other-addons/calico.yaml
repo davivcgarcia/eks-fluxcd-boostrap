@@ -6,8 +6,6 @@ metadata:
   namespace: flux-system
 spec:
   releaseName: calico
-  targetNamespace: tigera-operator
-  storageNamespace: tigera-operator
   interval: 1m0s
   chart:
     spec:
