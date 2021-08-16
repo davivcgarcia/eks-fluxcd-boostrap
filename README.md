@@ -21,7 +21,7 @@ export GITHUB_USER=<GH USERNAME>
 3. Checkout the fork repository, create the `demo` branch and push to the origin:
 
 ```bash
-git clone git@github.com:davivcgarcia/eks-fluxcd-boostrap.git
+git clone https://github.com/davivcgarcia/eks-fluxcd-boostrap.git
 cd eks-fluxcd-boostrap/
 git checkout -b demo
 git push -u origin demo
