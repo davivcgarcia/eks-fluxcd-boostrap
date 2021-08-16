@@ -24,7 +24,7 @@ export GITHUB_USER=<GH USERNAME>
 git clone git@github.com:davivcgarcia/eks-fluxcd-boostrap.git
 cd eks-fluxcd-boostrap/
 git checkout -b demo
-git push origin demo
+git push -u origin demo
 ```
 
 4. Modify the `owner` on `eksctl-config.yaml` file to use your GitHub username:
