@@ -8,10 +8,11 @@ spec:
   releaseName: metrics-server
   targetNamespace: kube-system
   storageNamespace: kube-system
-  interval: 1m0s
+  interval: 10m0s
   chart:
     spec:
       chart: metrics-server
+      version: 5.9.2
       sourceRef:
         kind: HelmRepository
         name: bitnami

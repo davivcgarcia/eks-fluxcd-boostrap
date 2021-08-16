@@ -8,10 +8,11 @@ spec:
   releaseName: cluster-autoscaler
   targetNamespace: kube-system
   storageNamespace: kube-system
-  interval: 1m0s
+  interval: 10m0s
   chart:
     spec:
       chart: cluster-autoscaler
+      version: 9.10.4
       sourceRef:
         kind: HelmRepository
         name: cluster-autoscaler

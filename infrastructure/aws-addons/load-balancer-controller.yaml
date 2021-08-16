@@ -8,10 +8,11 @@ spec:
   releaseName: aws-load-balancer-controller
   targetNamespace: aws-system
   storageNamespace: aws-system
-  interval: 1m0s
+  interval: 10m0s
   chart:
     spec:
       chart: aws-load-balancer-controller
+      version: 1.2.5
       sourceRef:
         kind: HelmRepository
         name: eks-charts

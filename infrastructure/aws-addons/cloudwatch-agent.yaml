@@ -8,10 +8,11 @@ spec:
   releaseName: aws-cloudwatch-metrics
   targetNamespace: aws-system
   storageNamespace: aws-system
-  interval: 1m0s
+  interval: 10m0s
   chart:
     spec:
       chart: aws-cloudwatch-metrics
+      version: 0.0.5
       sourceRef:
         kind: HelmRepository
         name: eks-charts
