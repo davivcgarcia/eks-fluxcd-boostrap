@@ -8,20 +8,6 @@ availabilityZones:
   - us-east-1a
   - us-east-1b
   - us-east-1c
-vpc:
-  nat:
-    gateway: HighlyAvailable
-  clusterEndpoints:
-    privateAccess: true
-    publicAccess: true
-cloudWatch:
-  clusterLogging:
-    enableTypes:
-      - api
-      - audit
-      - authenticator
-      - controllerManager
-      - scheduler
 iam:
   withOIDC: true
   serviceAccounts:
@@ -31,11 +17,6 @@ iam:
       wellKnownPolicies:
         autoScaler: true
       roleName: sandbox-autoscaler-role
-    - metadata:
-        name: external-dns
-        namespace: kube-system
-      wellKnownPolicies:
-        externalDNS: true
     - metadata:
         name: aws-load-balancer-controller
         namespace: aws-system
