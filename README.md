@@ -1,6 +1,6 @@
-# eks-fluxcd-boostrap
+# eks-fluxcd-bootstrap
 
-This repository contains non-production [FluxCD](https://eksctl.io/usage/gitops-v2/) manifests used on GitOps-based boostrap of Amazon EKS sandbox clusters.
+This repository contains non-production [FluxCD](https://eksctl.io/usage/gitops-v2/) manifests used on GitOps-based bootstrap of Amazon EKS sandbox clusters.
 
 ## Prerequisites
 
@@ -21,8 +21,8 @@ export GITHUB_USER=<GH USERNAME>
 3. Checkout the fork repository, create the `demo` branch and push to the origin:
 
 ```bash
-git clone https://github.com/davivcgarcia/eks-fluxcd-boostrap.git
-cd eks-fluxcd-boostrap/
+git clone https://github.com/davivcgarcia/eks-fluxcd-bootstrap.git
+cd eks-fluxcd-bootstrap/
 git checkout -b demo
 git push -u origin demo
 ```
@@ -35,7 +35,7 @@ gitops:
     gitProvider: github
     flags:
       owner: davivcgarcia
-      repository: eks-fluxcd-boostrap
+      repository: eks-fluxcd-bootstrap
       private: "false"
       branch: demo
       path: ./clusters/sandbox/

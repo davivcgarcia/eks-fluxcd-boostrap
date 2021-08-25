@@ -47,7 +47,7 @@ gitops:
     gitProvider: github
     flags:
       owner: davivcgarcia
-      repository: eks-fluxcd-boostrap
+      repository: eks-fluxcd-bootstrap
       private: "false"
       branch: demo
       path: ./clusters/sandbox/
