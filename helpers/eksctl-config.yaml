@@ -48,7 +48,6 @@ gitops:
     flags:
       owner: davivcgarcia
       repository: eks-fluxcd-bootstrap
-      private: "false"
       branch: demo
       path: ./clusters/sandbox/
       namespace: flux-system
@@ -59,5 +58,4 @@ managedNodeGroups:
     minSize: 2
     maxSize: 5
     privateNetworking: true
-    ssh:
-      enableSsm: true
+
